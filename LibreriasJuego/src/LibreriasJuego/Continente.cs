@@ -14,10 +14,16 @@ namespace LibreriasJuego
         
         public string nombre { get; }
 
-        public List<IPais> paises { get; }
+        public List<IPais> paises { get=>{
+                return X;
+            }
+        }
 
         public IPais getPais(string nombrePais) {
             return this.misPaises[nombrePais];
+        }
+        internal void asignarPais(IPais nuevoPais) {
+            this.misPaises.Add(nuevoPais.nombre, nuevoPais);
         }
 
 
