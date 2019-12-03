@@ -4,14 +4,33 @@ using System.Text;
 
 namespace LibreriasJuego
 {
-    public interface Partida
+    public class Partida : IPartida
     {
-        public Jugador jugador { get; }
+        static Random generadorNumerosAleatorios = new Random();
 
-        public Continente continente { get; }
+        internal Partida(IJugador jugador, IContinente continente)
+        {
+            this.jugador = jugador;
+            this.continente = continente;
+            this.historicoPreguntas = new List<IPregunta>();
+        }
+        public IJugador jugador { get; }
 
-        public List<Pregunta> historicoPreguntas { get; }
+        public IContinente continente { get; }
 
-        public Pregunta nuevaPregunta();
+        public List<IPregunta> historicoPreguntas { get; }
+
+        public IPregunta nuevaPregunta()
+        {
+            IPais pais = null;
+            int total = this.continente.paises.Count;
+            double numeritoAleatorio = Partida.generadorNumerosAleatorios.NextDouble();
+            int elElegido = (int)(numeritoAleatorio * total);
+            pais = this.continente.paises[elElegido];
+
+            IPregunta p = new Pregunta(this, pais);
+            historicoPreguntas.Add(p);
+            return p;
+        }
     }
 }

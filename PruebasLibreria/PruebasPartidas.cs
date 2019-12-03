@@ -10,32 +10,32 @@ namespace PruebasLibreria
         [TestMethod]
         public void TestRecuperarListaPartidas()
         {
-            BaseDatosJugadores miBaseDatosJugadores =
+            IBaseDatosJugadores miBaseDatosJugadores =
                 Juego.dameElJuego().baseDatosJugadores;
-            Jugador ivan = miBaseDatosJugadores.getOrCreateJugador("Ivan");
+            IJugador ivan = miBaseDatosJugadores.getOrCreateJugador("Ivan");
             Assert.IsNotNull(ivan.historicoPartidas);
         }
         [TestMethod]
         public void TestNuevaPartida1()
         {
-            BaseDatosJugadores miBaseDatosJugadores =
+            IBaseDatosJugadores miBaseDatosJugadores =
                 Juego.dameElJuego().baseDatosJugadores;
-            Jugador ivan = miBaseDatosJugadores.getOrCreateJugador("Ivan");
-            Continente europa = Juego.dameElJuego().baseDatosGeografica.getContinente("Europa");
-            Partida partida = ivan.nuevaPartida(europa);
+            IJugador ivan = miBaseDatosJugadores.getOrCreateJugador("Ivan");
+            IContinente europa = Juego.dameElJuego().baseDatosGeografica.getContinente("Europa");
+            IPartida partida = ivan.nuevaPartida(europa);
             Assert.IsNotNull(partida);
         }
         [TestMethod]
         public void TestNuevaPartida2()
         {
-            BaseDatosJugadores miBaseDatosJugadores =
+            IBaseDatosJugadores miBaseDatosJugadores =
                 Juego.dameElJuego().baseDatosJugadores;
-            Jugador ivan = miBaseDatosJugadores.getOrCreateJugador("Ivan");
+            IJugador ivan = miBaseDatosJugadores.getOrCreateJugador("Ivan");
 
             int cuantasLlevaba = ivan.historicoPartidas.Count;
 
-            Continente europa = Juego.dameElJuego().baseDatosGeografica.getContinente("Europa");
-            Partida partida = ivan.nuevaPartida(europa);
+            IContinente europa = Juego.dameElJuego().baseDatosGeografica.getContinente("Europa");
+            IPartida partida = ivan.nuevaPartida(europa);
             
             int cuantasLleva = ivan.historicoPartidas.Count;
 

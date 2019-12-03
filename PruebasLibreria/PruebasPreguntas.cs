@@ -10,36 +10,36 @@ namespace PruebasLibreria
         [TestMethod]
         public void TestNuevaPregunta()
         {
-            BaseDatosJugadores miBaseDatosJugadores =
+            IBaseDatosJugadores miBaseDatosJugadores =
                 Juego.dameElJuego().baseDatosJugadores;
-            Jugador ivan = miBaseDatosJugadores.getOrCreateJugador("Ivan");
-            Continente europa = Juego.dameElJuego().baseDatosGeografica.getContinente("Europa");
-            Partida partida = ivan.nuevaPartida(europa);
-            Pregunta pregunta = partida.nuevaPregunta();
+            IJugador ivan = miBaseDatosJugadores.getOrCreateJugador("Ivan");
+            IContinente europa = Juego.dameElJuego().baseDatosGeografica.getContinente("Europa");
+            IPartida partida = ivan.nuevaPartida(europa);
+            IPregunta pregunta = partida.nuevaPregunta();
             Assert.IsNotNull(pregunta);
             Assert.IsNotNull(pregunta.pais);
         }
         [TestMethod]
         public void TestRespuestaFallida()
         {
-            BaseDatosJugadores miBaseDatosJugadores =
+            IBaseDatosJugadores miBaseDatosJugadores =
                 Juego.dameElJuego().baseDatosJugadores;
-            Jugador ivan = miBaseDatosJugadores.getOrCreateJugador("Ivan");
-            Continente europa = Juego.dameElJuego().baseDatosGeografica.getContinente("Europa");
-            Partida partida = ivan.nuevaPartida(europa);
-            Pregunta pregunta = partida.nuevaPregunta();
+            IJugador ivan = miBaseDatosJugadores.getOrCreateJugador("Ivan");
+            IContinente europa = Juego.dameElJuego().baseDatosGeografica.getContinente("Europa");
+            IPartida partida = ivan.nuevaPartida(europa);
+            IPregunta pregunta = partida.nuevaPregunta();
             bool resultado = pregunta.proponerRespuesta("Ruina");
             Assert.IsFalse(resultado);
         }
         [TestMethod]
         public void TestRespuestasFallidasMultiples()
         {
-            BaseDatosJugadores miBaseDatosJugadores =
+            IBaseDatosJugadores miBaseDatosJugadores =
                 Juego.dameElJuego().baseDatosJugadores;
-            Jugador ivan = miBaseDatosJugadores.getOrCreateJugador("Ivan");
-            Continente europa = Juego.dameElJuego().baseDatosGeografica.getContinente("Europa");
-            Partida partida = ivan.nuevaPartida(europa);
-            Pregunta pregunta = partida.nuevaPregunta();
+            IJugador ivan = miBaseDatosJugadores.getOrCreateJugador("Ivan");
+            IContinente europa = Juego.dameElJuego().baseDatosGeografica.getContinente("Europa");
+            IPartida partida = ivan.nuevaPartida(europa);
+            IPregunta pregunta = partida.nuevaPregunta();
             int intentos = pregunta.intentosRestantes;
             Assert.AreEqual(intentos,3);
 
@@ -59,12 +59,12 @@ namespace PruebasLibreria
         [TestMethod]
         public void TestRespuestaCorrecta()
         {
-            BaseDatosJugadores miBaseDatosJugadores =
+            IBaseDatosJugadores miBaseDatosJugadores =
                 Juego.dameElJuego().baseDatosJugadores;
-            Jugador ivan = miBaseDatosJugadores.getOrCreateJugador("Ivan");
-            Continente europa = Juego.dameElJuego().baseDatosGeografica.getContinente("Europa");
-            Partida partida = ivan.nuevaPartida(europa);
-            Pregunta pregunta = partida.nuevaPregunta();
+            IJugador ivan = miBaseDatosJugadores.getOrCreateJugador("Ivan");
+            IContinente europa = Juego.dameElJuego().baseDatosGeografica.getContinente("Europa");
+            IPartida partida = ivan.nuevaPartida(europa);
+            IPregunta pregunta = partida.nuevaPregunta();
             bool resultado = pregunta.proponerRespuesta(pregunta.pais.capital);
             Assert.IsTrue(resultado);
         }
