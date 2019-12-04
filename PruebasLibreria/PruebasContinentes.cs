@@ -1,5 +1,7 @@
 using LibreriasJuego;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
+
 namespace PruebasLibreria
 {
     [TestClass]
@@ -38,9 +40,11 @@ namespace PruebasLibreria
             IBaseDatosGeografica miBaseDatosGeografica =
                 Juego.dameElJuego().baseDatosGeografica;
             IContinente europa = miBaseDatosGeografica.getContinente("Europa");
-            IPais nuevaZelanda = europa.getPais("Nueva Zelanda");
-            Assert.IsNull(nuevaZelanda);
+            //IPais nuevaZelanda = europa.getPais("Nueva Zelanda");
+            //Usamos una expresion LAMBDA para poder usar una variable (dato concreto) cuando nos pide una funcion ACTION
+            //Una funcion ACTION es una funcion que no devuelve un valor
+            Assert.ThrowsException<KeyNotFoundException>(() => europa.getPais("Nueva Zelanda"));
         }
 
-    }
+    } 
 }

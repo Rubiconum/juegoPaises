@@ -13,7 +13,7 @@ namespace LibreriasJuego
 
         public IJugador getOrCreateJugador(string nombreJugador);
 
-        public List<IJugador> jugadores { get; }
+        public IList<IJugador> jugadores { get; }
 
     }
 }

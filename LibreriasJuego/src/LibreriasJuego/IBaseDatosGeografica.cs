@@ -12,7 +12,7 @@ namespace LibreriasJuego
 
         public IContinente getContinente(string nombreContinente);
 
-        public List<IContinente> getContinentes();
+        public IList<IContinente> getContinentes();
         
     }
 }

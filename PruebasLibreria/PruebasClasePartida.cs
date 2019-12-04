@@ -8,7 +8,10 @@ namespace PruebasLibreria
     public class PruebasClasePartida
     {
         [TestMethod]
-        public void TestCrearPartida
+        public void TestCrearPartida()
+        {
+
         }
+
     }
 }
