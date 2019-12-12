@@ -25,22 +25,22 @@ namespace InterfazJuego
         {
             InitializeComponent();
             //Inicializar el juego
-            Juego.dameElJuego();
+            IJuego.dameElJuego();
             cargarContinentes();
 
 
         }
         private void cargarContinentes() {
-            IList<IContinente> misContinentes = Juego.dameElJuego().baseDatosGeografica.getContinentes();
+            IList<IContinente> misContinentes = IJuego.dameElJuego().baseDatosGeografica.getContinentes();
             misContinentes.ToList().ForEach((continente)=>cmb_continentes.Items.Add(continente.nombre));
         }
         private void btn_Jugar_Click(object sender, RoutedEventArgs e)
         {
             var nombreJugador = txt_Jugador.Text;
             string nombreContinente = (string)cmb_continentes.SelectedItem;
-            IContinente continente = Juego.dameElJuego().baseDatosGeografica.getContinente(nombreContinente);
+            IContinente continente = IJuego.dameElJuego().baseDatosGeografica.getContinente(nombreContinente);
             //Mirar si el jugador existe, sino lo creo y lo recupero
-            IJugador jugador = Juego.dameElJuego().baseDatosJugadores.getOrCreateJugador(nombreJugador);
+            IJugador jugador = IJuego.dameElJuego().baseDatosJugadores.getOrCreateJugador(nombreJugador);
             //Crearle una partida
             IPartida partida = jugador.nuevaPartida(continente);
 

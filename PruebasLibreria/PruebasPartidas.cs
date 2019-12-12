@@ -11,7 +11,7 @@ namespace PruebasLibreria
         public void TestRecuperarListaPartidas()
         {
             IBaseDatosJugadores miBaseDatosJugadores =
-                Juego.dameElJuego().baseDatosJugadores;
+                IJuego.dameElJuego().baseDatosJugadores;
             IJugador ivan = miBaseDatosJugadores.getOrCreateJugador("Ivan");
             Assert.IsNotNull(ivan.historicoPartidas);
         }
@@ -19,9 +19,9 @@ namespace PruebasLibreria
         public void TestNuevaPartida1()
         {
             IBaseDatosJugadores miBaseDatosJugadores =
-                Juego.dameElJuego().baseDatosJugadores;
+                IJuego.dameElJuego().baseDatosJugadores;
             IJugador ivan = miBaseDatosJugadores.getOrCreateJugador("Ivan");
-            IContinente europa = Juego.dameElJuego().baseDatosGeografica.getContinente("Europa");
+            IContinente europa = IJuego.dameElJuego().baseDatosGeografica.getContinente("Europa");
             IPartida partida = ivan.nuevaPartida(europa);
             Assert.IsNotNull(partida);
         }
@@ -29,12 +29,12 @@ namespace PruebasLibreria
         public void TestNuevaPartida2()
         {
             IBaseDatosJugadores miBaseDatosJugadores =
-                Juego.dameElJuego().baseDatosJugadores;
+                IJuego.dameElJuego().baseDatosJugadores;
             IJugador ivan = miBaseDatosJugadores.getOrCreateJugador("Ivan");
 
             int cuantasLlevaba = ivan.historicoPartidas.Count;
 
-            IContinente europa = Juego.dameElJuego().baseDatosGeografica.getContinente("Europa");
+            IContinente europa = IJuego.dameElJuego().baseDatosGeografica.getContinente("Europa");
             IPartida partida = ivan.nuevaPartida(europa);
             
             int cuantasLleva = ivan.historicoPartidas.Count;

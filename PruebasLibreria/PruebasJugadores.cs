@@ -9,7 +9,7 @@ namespace PruebasLibreria
         public void TestAltaJugador()
         {
             IBaseDatosJugadores miBaseDatosJugadores =
-                Juego.dameElJuego().baseDatosJugadores;
+                IJuego.dameElJuego().baseDatosJugadores;
             IJugador ivan = miBaseDatosJugadores.nuevoJugador("Ivan");
             Assert.IsNotNull(ivan);
         }
@@ -17,7 +17,7 @@ namespace PruebasLibreria
         public void TestRecuperacionJugador()
         {
             IBaseDatosJugadores miBaseDatosJugadores =
-                Juego.dameElJuego().baseDatosJugadores;
+                IJuego.dameElJuego().baseDatosJugadores;
             IJugador ivan = miBaseDatosJugadores.getJugador("Ivan");
             Assert.IsNotNull(ivan);
         }
@@ -25,7 +25,7 @@ namespace PruebasLibreria
         public void TestAltaYRecuperacionJugador()
         {
             IBaseDatosJugadores miBaseDatosJugadores =
-                Juego.dameElJuego().baseDatosJugadores;
+                IJuego.dameElJuego().baseDatosJugadores;
             IJugador ivan = miBaseDatosJugadores.getOrCreateJugador("Ivan");
             Assert.IsNotNull(ivan);
         }
@@ -33,7 +33,7 @@ namespace PruebasLibreria
         public void TestNombreJugador()
         {
             IBaseDatosJugadores miBaseDatosJugadores =
-                Juego.dameElJuego().baseDatosJugadores;
+                IJuego.dameElJuego().baseDatosJugadores;
             IJugador ivan = miBaseDatosJugadores.getOrCreateJugador("Ivan");
             Assert.AreEqual(ivan.nombre,"Ivan");
         }

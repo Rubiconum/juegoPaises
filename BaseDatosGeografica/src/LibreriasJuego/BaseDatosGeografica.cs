@@ -18,7 +18,7 @@ namespace LibreriasJuego
 
     {
 
-        internal BaseDatosGeografica()
+        public BaseDatosGeografica()
         {
 
             this.paises = new Dictionary<string, IPais>();
